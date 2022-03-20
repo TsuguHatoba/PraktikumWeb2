@@ -24,10 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["jenisKelamin"])) {
         $error_jenisKelamin = "jenis kelamin tidak boleh kosong";
     }
-    #else {
-    #    $jenisKelamin = cek_input($_POST["jenisKelamin"]);
-    #} 
-    
 }  
 function cek_input($data) {
     $data = trim($data);
@@ -46,8 +42,9 @@ function cek_input($data) {
 </head>
 <body>
     <form action="" method="POST">
-        Nama: <input type="text" name="nama" class="form-control" value="<?= cek_input($nama) ?>"><font color=red>*<span class="warning"><?php echo $error_nama; ?></span></font><br>
-        Nim: <input type="text" name="nim" class="form-control" value="<?= cek_input($nim) ?>"><font color=red>*<span class="warning"><?php echo $error_nim; ?></span></font><br>
+        Nama:   <input type="text" name="nama"  class="form-control" value="<?= cek_input($nama) ?>"><font color=red>*<span class="warning"><?php echo $error_nama; ?></span></font><br>
+        Nim:    <input type="text" name="nim"   class="form-control" value="<?= cek_input($nim)  ?>"><font color=red>*<span class="warning"><?php echo $error_nim;  ?></span></font><br>
+        
         Jenis Kelamin : <font color=red>*<span class="warning"><?php echo $error_jenisKelamin; ?></span></font><br>
         <input type="radio" name="jenisKelamin" value="Laki-laki" <?php if (isset($_POST["jenisKelamin"]) && $_POST["jenisKelamin"] == "Laki-laki") echo "checked";?>> Laki-Laki<br>
         <input type="radio" name="jenisKelamin" value="Perempuan" <?php if (isset($_POST["jenisKelamin"]) && $_POST["jenisKelamin"] == "Perempuan") echo "checked";?>> Perempuan<br>

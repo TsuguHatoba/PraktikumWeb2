@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 $error_nama = "";
 $error_nim = "";

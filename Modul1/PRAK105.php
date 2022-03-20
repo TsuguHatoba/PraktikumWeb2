@@ -6,29 +6,19 @@ $list = ['SGS22'=>'Samsung Galaxy S22', 'SGS22+'=>'Samsung Galaxy S22+', 'SGA03'
     <body>
         <table border = "1">
             <tr>
-                <td class = "header">
-                    Daftar Smartphone Samsung
-                </td>
+                <td class = "header">Daftar Smartphone Samsung</td>
             </tr>
             <tr>
-                <td>
-                    <?php echo $list['SGS22']; ?>
-                </td>
+                <td><?php echo $list['SGS22']; ?></td>
             </tr>
             <tr>
-                <td>
-                    <?php echo $list['SGS22+']; ?>
-                </td>
+                <td><?php echo $list['SGS22+']; ?></td>
             </tr>
             <tr>
-                <td>
-                    <?php echo $list['SGA03']; ?>
-                </td>
+                <td><?php echo $list['SGA03']; ?></td>
             </tr>
             <tr>
-                <td>
-                    <?php echo $list['SGXC5']; ?>
-                </td>
+                <td><?php echo $list['SGXC5']; ?></td>
             </tr>
         </table>
     </body>     

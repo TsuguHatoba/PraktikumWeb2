@@ -31,7 +31,7 @@
             }
             
         }
-        foreach ($nama as $hasil2 => $hasil) {
+        foreach ($nama as $nama => $hasil) {
             echo "$hasil <br>";
         }
     }   

@@ -45,15 +45,15 @@ function cek_input($data) {
         Nim:    <input type="text" name="nim"   class="form-control" value="<?= cek_input($nim)  ?>"><font color=red>*<span class="warning"><?php echo $error_nim;  ?></span></font><br>
         
         Jenis Kelamin : <font color=red>*<span class="warning"><?php echo $error_jenisKelamin; ?></span></font><br>
-        <input type="radio" name="jenisKelamin" value="Laki-laki" <?php if (isset($_POST["jenisKelamin"]) && $_POST["jenisKelamin"] == "Laki-laki") echo "checked";?>> Laki-Laki<br>
-        <input type="radio" name="jenisKelamin" value="Perempuan" <?php if (isset($_POST["jenisKelamin"]) && $_POST["jenisKelamin"] == "Perempuan") echo "checked";?>> Perempuan<br>
+        <input type="radio" name="jenisKelamin" value="Laki-laki" <?php if (isset($_POST["jenisKelamin"]) and $_POST["jenisKelamin"] == "Laki-laki") echo "checked";?>> Laki-Laki<br>
+        <input type="radio" name="jenisKelamin" value="Perempuan" <?php if (isset($_POST["jenisKelamin"]) and $_POST["jenisKelamin"] == "Perempuan") echo "checked";?>> Perempuan<br>
         <button type="submit">Submit</button>
     </form>
 </body>
 </html>
 
 <?php
-    if ($nama && $nim && $jenisKelamin == true){
+    if ($nama and $nim and $jenisKelamin == true){
         echo "$nama <br>";
         echo "$nim <br>";
         echo "$jenisKelamin";

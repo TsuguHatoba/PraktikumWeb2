@@ -53,7 +53,9 @@ function cek_input($data) {
 </html>
 
 <?php
-    echo "$nama <br>";
-    echo "$nim <br>";
-    echo "$jenisKelamin";
+    if ($nama && $nim && $jenisKelamin == true){
+        echo "$nama <br>";
+        echo "$nim <br>";
+        echo "$jenisKelamin";
+    }
 ?>

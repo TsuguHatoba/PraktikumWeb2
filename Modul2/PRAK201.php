@@ -1,3 +1,7 @@
+<?php
+$nama=$_POST["nama[]"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +12,21 @@
 </head>
 <body>
     <form action="" method="POST">
-        Nama 1 : <input type ="text" name= "nama[]"></input><br>
-        Nama 2 : <input type ="text" name= "nama[]"></input><br>
-        Nama 3 : <input type ="text" name= "nama[]"></input><br>
+        Nama 1 : <input type ="text" name= "nama[]" value="<?= cek_input($nama) ?>"><br>
+        Nama 2 : <input type ="text" name= "nama[]" value="<?= cek_input($nama) ?>"><br>
+        Nama 3 : <input type ="text" name= "nama[]" value="<?= cek_input($nama) ?>"><br>
         <button type="submit">Urutkan</button>
     </form>
 </body>
 </html>
 
 <?php
+function cek_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
     if(isset($_POST["nama"])){
         $nama=$_POST["nama"];
 

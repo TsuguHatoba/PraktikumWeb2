@@ -35,16 +35,11 @@ function cek_input($data) {
         <input type="radio" name="suhuAkhir" value="Reamur"     <?php if(isset($_POST["suhuAkhir"]) and $_POST["suhuAkhir"] == "Reamur")    echo "checked"; ?>> Reamur<br>
         <input type="radio" name="suhuAkhir" value="Kelvin"     <?php if(isset($_POST["suhuAkhir"]) and $_POST["suhuAkhir"] == "Kelvin")    echo "checked"; ?>> Kelvin<br><br>
         <button type="submit">Konversi</button><br>
-
-        <h2>Hasil Konversi : <?php echo Konversi() ?> </h2>
-
-        
     </form>
 </body>
 </html>
 
 <?php
-function konversi(){
     $hasil = "";
     $nilai = $_POST["nilai"];
     $suhuAwal = $_POST["suhuAwal"];
@@ -52,42 +47,41 @@ function konversi(){
 
     if($suhuAwal=="Celcius" and $suhuAkhir == "Fahrenheit"){
         $hasil = 9 / 5 * $nilai + 32;
-        echo "$hasil °F";
+        echo "<h2>Hasil Konversi: $hasil °F</h2>";
     }else if($suhuAwal == "Celcius" and $suhuAkhir == "Reamur"){
         $hasil = 4 / 5 * $nilai;
-        echo "$hasil °R";
+        echo "<h2>Hasil Konversi: $hasil °R</h2>";
     }else if($suhuAwal == "Celcius" and $suhuAkhir == "Kelvin"){
         $hasil = $nilai + 273;
-        echo "$hasil °K";
+        echo "<h2>Hasil Konversi: $hasil °K</h2>";
     }else if($suhuAwal == "Fahrenheit" and $suhuAkhir == "Celcius"){
         $hasil = 5 / 9 * ($nilai - 32);
-        echo "$hasil °C";
+        echo "<h2>Hasil Konversi: $hasil °C</h2>";
     }else if($suhuAwal == "Fahrenheit" and $suhuAkhir == "Reamur"){
         $hasil = 4/9*($nilai-32);
-        echo "$hasil °R";
+        echo "<h2>Hasil Konversi: $hasil °R</h2>";
     }else if($suhuAwal == "Fahrenheit" and $suhuAkhir == "Kelvin"){
         $hasil = 5/9*($nilai-32)+273;
-        echo "$hasil °K";
+        echo "<h2>Hasil Konversi: $hasil °K</h2>";
     }else if($suhuAwal == "Reamur" and $suhuAkhir == "Celcius"){
         $hasil = 5/4*$nilai;
-        echo "$hasil °C";
+        echo "<h2>Hasil Konversi: $hasil °C</h2>";
     }else if($suhuAwal == "Reamur" and $suhuAkhir == "Fahrenheit"){
         $hasil = 9/4*$nilai+32;
-        echo "$hasil °F";
+        echo "<h2>Hasil Konversi: $hasil °F</h2>";
     }else if($suhuAwal == "Reamur" and $suhuAkhir == "Kelvin"){
         $hasil = 5/4*$nilai+273;
-        echo "$hasil °K";
+        echo "<h2>Hasil Konversi: $hasil °K</h2>";
     }else if($suhuAwal == "Kelvin" and $suhuAkhir == "Celcius"){
         $hasil = $nilai - 273;
-        echo "$hasil °C";
+        echo "<h2>Hasil Konversi: $hasil °C</h2>";
     }else if($suhuAwal == "Kelvin" and $suhuAkhir == "Fahrenheit"){
         $hasil = 4/5*($nilai-273);
-        echo "$hasil °F";
+        echo "<h2>Hasil Konversi: $hasil °F</h2>";
     }else if($suhuAwal == "Kelvin" and $suhuAkhir == "Reamur"){
         $hasil = 9/5*($nilai - 273)+32;
-        echo "$hasil °R";
+        echo "<h2>Hasil Konversi: $hasil °R</h2>";
     }else{
-        echo "$nilai";
-    }
-}        
+        echo "<h2>$nilai</h2>";
+    }     
 ?>

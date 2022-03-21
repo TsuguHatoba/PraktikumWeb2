@@ -7,7 +7,6 @@ function cek_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +22,13 @@ function cek_input($data) {
     <form action="" method="POST">
         Nilai: <input type="text" name="nilai" class="form-control" value="<?= cek_input($nilai) ?>"><br><br>
 
-        <label for="suhuAwal">Dari : <br></label>
+        Dari : <br>
         <input type="radio" name="suhuAwal" value="Celcius"     <?php if(isset($_POST["suhuAwal"]) and $_POST["suhuAwal"] == "Celcius")     echo "checked"; ?>> Celcius<br>
         <input type="radio" name="suhuAwal" value="Fahrenheit"  <?php if(isset($_POST["suhuAwal"]) and $_POST["suhuAwal"] == "Fahrenheit")  echo "checked"; ?>> Fahrenheit<br>
         <input type="radio" name="suhuAwal" value="Reamur"      <?php if(isset($_POST["suhuAwal"]) and $_POST["suhuAwal"] == "Reamur")      echo "checked"; ?>> Reamur<br>
         <input type="radio" name="suhuAwal" value="Kelvin"      <?php if(isset($_POST["suhuAwal"]) and $_POST["suhuAwal"] == "Kelvin")      echo "checked"; ?>> Kelvin<br><br>
 
-        <label for="suhuAkhir">Ke : <br></label>
+        Ke : <br>
         <input type="radio" name="suhuAkhir" value="Celcius"    <?php if(isset($_POST["suhuAkhir"]) and $_POST["suhuAkhir"] == "Celcius")   echo "checked"; ?>> Celcius<br>
         <input type="radio" name="suhuAkhir" value="Fahrenheit" <?php if(isset($_POST["suhuAkhir"]) and $_POST["suhuAkhir"] == "Fahrenheit")echo "checked"; ?>> Fahrenheit<br>
         <input type="radio" name="suhuAkhir" value="Reamur"     <?php if(isset($_POST["suhuAkhir"]) and $_POST["suhuAkhir"] == "Reamur")    echo "checked"; ?>> Reamur<br>

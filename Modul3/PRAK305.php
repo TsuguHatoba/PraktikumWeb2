@@ -27,16 +27,14 @@ function cek_input($data) {
         <input type="text" name="input" value="<?= cek_input($input)   ?>">
         <button type="submit" name="submit">submit</button>
     </form>
-    
+
     <?php
     if (isset($_POST['input'])) {
         echo "<h2> Input: </h2><br>";
         echo $input;
         echo "<h2>Output: </h2><br>";
     }
-    ?>
 
-    <?php
     if (isset($_POST['submit'])) {
             $input=$_POST['input'];
             $array = strlen($input);

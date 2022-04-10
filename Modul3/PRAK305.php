@@ -31,12 +31,13 @@ function cek_input($data) {
 </html>
 
 <?php
-if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
         $input=$_POST['input'];
         $array = strlen($input);
         $split = str_split($input);
         $a=0;
         $b=0;
+
         while($b<$array){
             echo strtoupper($split[$a]);
             

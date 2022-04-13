@@ -40,8 +40,7 @@ function cek_input($data) {
             $array = strlen($input);
             $split = str_split($input);
             $a=0;
-            $b=0;
-            while($b<$array){
+            while($a<$array){
                 echo strtoupper($split[$a]);
                 
                 $i=1;
@@ -50,7 +49,6 @@ function cek_input($data) {
                     $i++;
                 }
                 $a++;
-                $b++;
             }
         }
     ?>

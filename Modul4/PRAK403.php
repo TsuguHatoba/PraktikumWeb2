@@ -1,29 +1,26 @@
 <?php
-    $nilai = [
-        ["no" => 1, "nama" => "Ridho", 
-        "mk" => [
-            ["mataKuliah" =>"Pemrograman I", "sks" => 2], 
-            ["mataKuliah" => "Praktikum Pemrograman I", "sks" => 1],
-            ["mataKuliah" => "Pengantar Lingkungan Lahan Basah", "sks" => 2], 
-            ["mataKuliah" => "Arsitektur Komputer", "sks" => 3]
-        ]
+    $nilai =
+    [
+        [
+            "nama"=> "Ridho", "mataKuliah"=>
+            [
+                "Pemrograman I", "Praktikum Pemrograman I", "Pengantar Lingkungan Lahan Basah", "Arsitektur Komputer"
+            ],"sks"=>[2, 1, 2, 3]
         ],
 
-        ["no" => 2, "nama" => "Ratna", 
-        "mk" => [
-            ["mataKuliah" =>"Basis Data I", "sks" => 2], 
-            ["mataKuliah" => "Praktikum Basis Data I", "sks" => 1],
-            ["mataKuliah" => "Kalkulus", "sks" => 3]
-        ]
+        [
+            "nama"=> "Ratna", "mataKuliah"=>
+            [
+                "Basis Data I", "Praktikum Basis Data I", "Kalkulus"
+            ],"sks"=>[2, 1, 3]
         ],
 
-        ["no" => 3, "nama" => "Tono", 
-        "mk" => [
-            ["mataKuliah" => "Rekayasa Perangkat Lunak", "sks" => 3], 
-            ["mataKuliah" => "Analisis dan Perancangan Sistem", "sks" => 3],
-            ["mataKuliah" => "Komputasi Awan", "sks" => 3], 
-            ["mataKuliah" => "Kecerdasan Bisnis", "sks" => 3]
-        ]
+        [
+            "nama"=> "Tono", "mataKuliah"=>
+            [
+                "Rekayasa Perangkat Lunak", "Analisis dan Perancangan Sistem", "Komputasi Awan", "Kecerdasan Bisnis"
+            ]
+            ,"sks"=>[3, 3, 3, 3]
         ]
     ];
 ?>
@@ -31,61 +28,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        table, tr, td, th {
-            border: 1px solid black;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soal 3</title>
+    <title>PRAK403</title>
+    <style>
+        table, td, th {  
+            border: 1px solid black;
+            text-align: left;
+            padding-right: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,td{
+            padding-bottom: 10px;
+            padding-left: 5px;
+        }
+
+        th{
+            background-color: gray;
+        }
+    </style>
 </head>
 <body>
-    <table>
+    <table border="1">
         <tr>
-            <td>No</td>
-            <td>Nama</td>
-            <td>Mata Kuliah diambil</td>
-            <td>SKS</td>
-            <td>Total SKS</td>
-            <td>Keterangan</td>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Mata Kuliah Diambil</th>
+            <th>SKS</th>
+            <th>Total SKS</th>
+            <th>Keterangan</th>
         </tr>
         <?php
-            for ($i=0; $i < count($nilai); $i++) {
-                $jumlah = 0;
-                for ($j=0; $j < count($nilai[$i]["mk"]); $j++) { 
-                    $jumlah += $nilai[$i]["mk"][$j]["sks"];
-                }
-                $nilai[$i]["jumlah"] = $jumlah;
-                if ($nilai[$i]["jumlah"] <= 6) {
-                    $nilai[$i]["keterangan"] = "<div style=background-color:#ff4f4f>Revisi KRS</div>";
-                } else {
-                    $nilai[$i]["keterangan"] = "<div style=background-color:#7bfc44>Tidak Revisi";
-                }
+
+            for($totalSks=0; $totalSks<count($nilai);$totalSks++){
+                $nilai[$totalSks]["Total SKS"] = array_sum($nilai[$totalSks]["sks"]);
             }
 
-            for ($i=0; $i < count($nilai); $i++) {
-                for ($j=0; $j < count($nilai[$i]["mk"]); $j++) { 
+
+            for($i=0; $i <count($nilai); $i++){
+                for($j=0; $j<count($nilai[$i]["mataKuliah"]); $j++){
                     echo "<tr>";
-                    if ($j == 0) {
-                        echo "<td>".$nilai[$i]["no"]."</td>";
-                        echo "<td>".$nilai[$i]["nama"]."</td>";
-                        echo "<td>".$nilai[$i]["mk"][$j]["mataKuliah"]."</td>";
-                        echo "<td>".$nilai[$i]["mk"][$j]["sks"]."</td>";
-                        echo "<td>".$nilai[$i]["jumlah"]."</td>";
-                        echo "<td>".$nilai[$i]["keterangan"]."</td>";
-                    }else {
-                        echo "<td></td>";
-                        echo "<td></td>";
-                        echo "<td>".$nilai[$i]["mk"][$j]["mataKuliah"]."</td>";
-                        echo "<td>".$nilai[$i]["mk"][$j]["sks"]."</td>";
-                        echo "<td></td>";
-                        echo "<td></td>";
+                    if($j==0){
+                        echo "
+                        <td>".$i+1 ."</td>
+                        <td>".$nilai[$i]["nama"]."</td>
+                        <td>".$nilai[$i]["mataKuliah"][$j]."</td>
+                        <td>".$nilai[$i]["sks"][$j]."</td>
+                        <td>".$nilai[$i]["Total SKS"]."</td>
+                        ";
+                        
+                        if($nilai[$i]["Total SKS"]>6){
+                            $nilai[$i]["Keterangan"] = "Tidak Revisi";
+                            echo "<td style='background-color:green;'>".$nilai[$i]["Keterangan"]."</td>";
+                        }else{
+                            $nilai[$i]["Keterangan"] = "Revisi KRS";
+                            echo "<td style='background-color:red;'>".$nilai[$i]["Keterangan"]."</td>";
+                        }
+
+                    }else{
+                        echo "
+                        <td></td>
+                        <td></td>
+                        <td>".$nilai[$i]["mataKuliah"][$j]."</td>
+                        <td>".$nilai[$i]["sks"][$j]."</td>
+                        <td></td>
+                        <td></td>
+                        ";
                     }
-                    echo "</tr>";
                 }
-            }
+           }
         ?>
     </table>
 </body>

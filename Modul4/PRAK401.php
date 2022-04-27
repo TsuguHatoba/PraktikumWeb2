@@ -1,7 +1,8 @@
- <?php
+<?php
     $panjang = "";
     $lebar = "";
     $nilai = "";
+    $hitung= NULL;
 
     if (isset($_POST["submit"])) {
         $panjang = $_POST["panjang"];
@@ -25,24 +26,19 @@
         Nilai: <input type="text" name="nilai" value="<?=$nilai;?>"><br>
         <button type="submit" name="submit">Cetak</button>
     </form>
-
+    <table border="1">
     <?php
         if (isset($_POST["submit"])){
             $isi = explode(" ", $nilai);
-            $countNilai = count($isi);
-            if ($panjang * $lebar == $countNilai){
+            
+            if ($panjang * $lebar == count($isi)){
                 $hitung = 0;
-                for ($i=0; $i < $panjang; $i++) { 
-                    for ($j=0; $j < $lebar; $j++) { 
-                        $tampil[$i][$j] = $isi[$hitung];
-                        $hitung++;
-                    }
-                }
-                echo "<table border = 1>";
-                for ($i=0; $i < $panjang; $i++) { 
+                
+                for($i=0; $i< $panjang; $i++){
                     echo "<tr>";
-                    for ($j=0; $j < $lebar; $j++) { 
-                        echo "<td>".$tampil[$i][$j]."</td>";
+                    for($j=0; $j< $lebar; $j++){
+                        echo "<td>".$isi[$hitung]."</td>";
+                        $hitung++;
                     }
                     echo "</tr>";
                 }
@@ -51,5 +47,6 @@
             }
         }
     ?>
+    </table>
 </body>
 </html>
